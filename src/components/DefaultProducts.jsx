@@ -6,11 +6,11 @@ const productCategories = [
   {
     category: "Cakes",
     products: [
-      { id: 1, name: "Chocolate Delight", image: "chocolate-cake.jpg", soldLast10Days: 25 },
-      { id: 2, name: "Vanilla Dream", image: "vanilla-cake.jpg", soldLast10Days: 20 },
-      { id: 3, name: "Strawberry Bliss", image: "strawberry-cake.jpg", soldLast10Days: 18 },
-      { id: 4, name: "Red Velvet", image: "red-velvet-cake.jpg", soldLast10Days: 22 },
-      { id: 5, name: "Lemon Zest", image: "lemon-cake.jpg", soldLast10Days: 15 },
+      { id: 1, name: "Chocolate Delight", image: "chocolate-cake.jpg", soldLast10Days: 25, originalPrice: 35, discountedPrice: 30 },
+      { id: 2, name: "Vanilla Dream", image: "vanilla-cake.jpg", soldLast10Days: 20, originalPrice: 32, discountedPrice: 28 },
+      { id: 3, name: "Strawberry Bliss", image: "strawberry-cake.jpg", soldLast10Days: 18, originalPrice: 34, discountedPrice: 29 },
+      { id: 4, name: "Red Velvet", image: "red-velvet-cake.jpg", soldLast10Days: 22, originalPrice: 36, discountedPrice: 31 },
+      { id: 5, name: "Lemon Zest", image: "lemon-cake.jpg", soldLast10Days: 15, originalPrice: 33, discountedPrice: 28 },
     ]
   },
   {
@@ -56,8 +56,15 @@ const ProductRow = ({ category, products }) => {
 
     startScroll();
 
+
     return () => clearInterval(scrollInterval);
   }, [isPaused]);
+
+  const handleOrderClick = (product) => {
+    const whatsappNumber = "6380255375";
+    const message = encodeURIComponent(`I'd like to order the ${product.name} for $${product.discountedPrice}`);
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  };
 
   return (
     <div className="product-row">
@@ -73,7 +80,11 @@ const ProductRow = ({ category, products }) => {
             <img src={`/images/${product.image}`} alt={product.name} />
             <h4>{product.name}</h4>
             <p>{product.soldLast10Days} sold in last 10 days</p>
-            <button className="order-button">Place Order</button>
+            <div className="price">
+              <span className="original-price">${product.originalPrice}</span>
+              <span className="discounted-price">${product.discountedPrice}</span>
+            </div>
+            <button className="order-button" onClick={() => handleOrderClick(product)}>Place Order</button>
           </div>
         ))}
       </div>
@@ -81,10 +92,15 @@ const ProductRow = ({ category, products }) => {
   );
 };
 
+
 const DefaultProducts = () => {
   return (
     <section className="default-products">
-      <h2>Our Popular Products</h2>
+      <div className="tagline">
+        <h2>Celebrate Life's Sweet Moments With Us</h2>
+        <p>From festivals to everyday joys, we've got the perfect treat for every occasion</p>
+      </div>
+      <h3 className="section-title">Our Popular Products</h3>
       {productCategories.map((category, index) => (
         <ProductRow key={index} category={category.category} products={category.products} />
       ))}

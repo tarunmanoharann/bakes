@@ -1,60 +1,57 @@
 /* src/assets/navbar.css */
 .navbar {
     background-color: rgba(255, 255, 255, 0.9);
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: fixed;
-    top: 60px; /* Height of the PromoBar */
-    left: 0;
-    right: 0;
-    z-index: 998;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: top 0.3s ease;
-  }
-  
-  @media (max-width: 768px) {
-    .navbar {
-      top: 120px; /* Adjusted for two-line PromoBar */
-    }
-  }
-  
-  /* ... rest of the navbar styles ... */
-  
-  .navbar-container {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 60px; /* Height of the PromoBar */
+  left: 0;
+  right: 0;
+  z-index: 998;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: top 0.3s ease;
+}
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 80px;
     max-width: 1500px;
     padding: 0 50px;
-  }
-  
-  .logo h1 {
+    height: 80px;
+}
+
+.logo h1 {
     color: #ff69b4;
     cursor: pointer;
     text-decoration: none;
     font-size: 2.5rem;
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-menu {
+}
+
+.logo-img {
+    display: none;
+    height: 40px;
+    width: auto;
+}
+
+.nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
     text-align: center;
-  }
-  
-  .nav-item {
-    height: 80px;
+}
+
+.nav-item {
     padding: 0 1rem;
-  }
-  
-  .nav-links {
+}
+
+.nav-links {
     color: #333;
     display: flex;
     align-items: center;
@@ -62,13 +59,13 @@
     height: 100%;
     font-weight: 600;
     transition: color 0.3s ease;
-  }
-  
-  .nav-links:hover {
+}
+
+.nav-links:hover {
     color: #ff69b4;
-  }
-  
-  .explore-button {
+}
+
+.explore-button {
     background-color: #191970;
     color: #fff;
     border: none;
@@ -79,10 +76,101 @@
     font-size: 1rem;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .explore-button:hover {
+}
+
+.explore-button:hover {
     background-color: #0000CD;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .navbar-container {
+        padding: 0 30px;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        top: 120px;
+    }
+
+    .navbar-container {
+        padding: 0 20px;
+    }
+
+    .logo h1 {
+        display: none;
+    }
+
+    .logo-img {
+        display: block;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    .nav-menu.active {
+        background: rgba(255, 255, 255, 0.9);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-item {
+        padding: 1rem 0;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: table;
+    }
+}
+
+@media (max-width: 480px) {
+   
+
+    .explore-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    top: 100px; 
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

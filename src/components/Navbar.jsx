@@ -1,23 +1,46 @@
 // src/components/Navbar.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../assets/css/navbar.css';
+import logo from '../assets/photos/port1.jpg'; // Make sure to add your logo image
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo">
           <h1>SheBakes</h1>
+          <img src={logo} alt="SheBakes Logo" className="logo-img" />
         </div>
-        <ul className="nav-menu">
+        {isMobile && (
+          <div className="menu-toggle" onClick={toggleMenu}>
+            <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+          </div>
+        )}
+        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
-            <a href="#cakes" className="nav-links">Cakes</a>
+            <a href="#cakes" className="nav-links" onClick={() => setIsMenuOpen(false)}>Cakes</a>
           </li>
           <li className="nav-item">
-            <a href="#brownies" className="nav-links">Brownies</a>
+            <a href="#brownies" className="nav-links" onClick={() => setIsMenuOpen(false)}>Brownies</a>
           </li>
           <li className="nav-item">
-            <a href="#cupcakes" className="nav-links">Cupcakes</a>
+            <a href="#cupcakes" className="nav-links" onClick={() => setIsMenuOpen(false)}>Cupcakes</a>
           </li>
         </ul>
         <button className="explore-button">

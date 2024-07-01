@@ -13,43 +13,42 @@
     right: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    height: 60px;
-  }
-  
-  .promo-content {
+}
+
+.promo-content {
     display: flex;
     align-items: center;
-  }
-  
-  .highlight {
+}
+
+.highlight {
     font-weight: bold;
     font-size: 1.1rem;
     background-color: #191970;
     padding: 5px 10px;
     border-radius: 20px;
     margin-right: 10px;
-  }
-  
-  .blink {
+}
+
+.blink {
     animation: blink-animation 1s steps(3, start) infinite;
-  }
-  
-  @keyframes blink-animation {
+}
+
+@keyframes blink-animation {
     to {
-      visibility: hidden;
+        visibility: hidden;
     }
-  }
-  
-  .promo-text {
+}
+
+.promo-text {
     font-weight: 500;
-  }
-  
-  .promo-buttons {
+}
+
+.promo-buttons {
     display: flex;
     gap: 10px;
-  }
-  
-  .promo-button {
+}
+
+.promo-button {
     background-color: white;
     color: #FF69B4;
     border: none;
@@ -57,29 +56,49 @@
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.5s ease; /* Increased transition time for delay effect */
+    transition: all 0.5s ease;
     text-transform: uppercase;
     font-size: 0.9rem;
     text-decoration: none;
     display: inline-block;
-  }
-  
-  .promo-button:hover {
+}
+
+.promo-button:hover {
     background-color: #191970;
     color: white;
     transform: scale(1.03);
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .promo-bar {
-      flex-direction: column;
-      height: auto;
-      padding: 10px;
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
     }
-  
+
     .promo-content, .promo-buttons {
-      width: 100%;
-      justify-content: center;
-      margin-bottom: 10px;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
     }
-  }
+}
+
+@media (max-width: 480px) {
+    .promo-bar {
+        padding: 5px;
+    }
+
+    .highlight {
+        font-size: 1rem;
+        padding: 3px 8px;
+    }
+
+    .promo-text {
+        font-size: 0.9rem;
+    }
+
+    .promo-button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
