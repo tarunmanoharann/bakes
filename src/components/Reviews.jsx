@@ -1,4 +1,5 @@
-import React from 'react';
+// src/components/Reviews.jsx
+import React, { useState, useEffect } from 'react';
 import '../assets/css/reviews.css';
 
 const reviews = [
@@ -29,12 +30,25 @@ const reviews = [
 ];
 
 const Reviews = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+    }, 4000); // Change slide every 7 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="reviews-section">
       <h2>What Our Customers Say</h2>
-      <div className="reviews-container">
-        {reviews.map((review) => (
-          <div key={review.id} className="review-card">
+      <div className="reviews-carousel">
+        {reviews.map((review, index) => (
+          <div
+            key={review.id}
+            className={`review-card ${index === currentIndex ? 'active' : ''}`}
+          >
             <div className="review-header">
               <h3>{review.name}</h3>
               <div className="rating">

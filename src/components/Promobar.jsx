@@ -9,7 +9,7 @@ const PromoBar = () => {
     <div className="promo-bar">
       <div className="promo-content">
         <div className="highlight-container">
-          <span className="highlight">15% OFF</span>
+          <span className="highlight blink">15% OFF</span>
         </div>
         <span className="promo-text">Online Baking Workshop</span>
       </div>

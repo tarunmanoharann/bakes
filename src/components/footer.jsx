@@ -1,7 +1,12 @@
 import React from 'react';
 import '../assets/css/footer.css';
+import { FaInstagram, FaWhatsapp, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
+  const whatsappNumber = "1234567890"; // Replace with your actual WhatsApp number
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+  const emailAddress = "info@shebakes.com";
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -27,15 +32,24 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Follow Us</h3>
           <div className="social-icons">
-            <a href="#" className="social-icon">FB</a>
-            <a href="#" className="social-icon">IG</a>
-            <a href="#" className="social-icon">TW</a>
-            <a href="#" className="social-icon">PT</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaInstagram />
+            </a>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaWhatsapp />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaTwitter />
+            </a>
+            <a href={`mailto:${emailAddress}`} className="social-icon">
+              <FaEnvelope />
+            </a>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2023 SheBakes. All rights reserved.</p>
+        <p>&copy; 2024 SheBakes. All rights reserved.</p>
+        <p>Designed and Created by <a href="https://onevision-delta.vercel.app/" target="_blank" rel="noopener noreferrer">Onevision</a></p>
       </div>
     </footer>
   );

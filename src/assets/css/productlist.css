@@ -35,7 +35,7 @@
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: calc(25% - 15px); /* 4 cards per row by default */
-  min-width: 250px;
+  min-width: 270px;
   max-width: 100%;
 }
 

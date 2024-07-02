@@ -1,7 +1,8 @@
 // src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
 import '../assets/css/navbar.css';
-import logo from '../assets/photos/port1.jpg'; // Make sure to add your logo image
+import logo from '../assets/photos/port1.jpg';
+import { FaBirthdayCake, FaCookie, FaMugHot } from 'react-icons/fa'; 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,11 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo">
-          <h1>SheBakes</h1>
+          <h1>
+            <span className="she">She</span>
+            <span className="bakes">Bakes</span>
+            <span className="butterfly">🦋</span>
+          </h1>
           <img src={logo} alt="SheBakes Logo" className="logo-img" />
         </div>
         {isMobile && (
@@ -34,13 +39,19 @@ const Navbar = () => {
         )}
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
-            <a href="#cakes" className="nav-links" onClick={() => setIsMenuOpen(false)}>Cakes</a>
+            <a href="#cakes" className="nav-links" onClick={() => setIsMenuOpen(false)}>
+              {isMobile ? <FaBirthdayCake /> : "Cakes"}
+            </a>
           </li>
           <li className="nav-item">
-            <a href="#brownies" className="nav-links" onClick={() => setIsMenuOpen(false)}>Brownies</a>
+            <a href="#brownies" className="nav-links" onClick={() => setIsMenuOpen(false)}>
+              {isMobile ? <FaCookie /> : "Brownies"}
+            </a>
           </li>
           <li className="nav-item">
-            <a href="#cupcakes" className="nav-links" onClick={() => setIsMenuOpen(false)}>Cupcakes</a>
+            <a href="#cupcakes" className="nav-links" onClick={() => setIsMenuOpen(false)}>
+              {isMobile ? <FaMugHot /> : "Cupcakes"}
+            </a>
           </li>
         </ul>
         <button className="explore-button">

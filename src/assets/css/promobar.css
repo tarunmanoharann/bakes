@@ -1,7 +1,7 @@
 /* src/assets/promobar.css */
 .promo-bar {
     background-color: #FF69B4;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -29,15 +29,17 @@
     margin-right: 10px;
 }
 
-.blink {
-    animation: blink-animation 1s steps(3, start) infinite;
-}
-
 @keyframes blink-animation {
-    to {
-        visibility: hidden;
-    }
-}
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .blink {
+    animation: blink-animation 1.5s linear infinite;
+  }
+
+
 
 .promo-text {
     font-weight: 500;
@@ -49,8 +51,8 @@
 }
 
 .promo-button {
-    background-color: white;
-    color: #FF69B4;
+    background-color: #191970;
+    color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 20px;

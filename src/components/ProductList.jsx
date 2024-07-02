@@ -1,37 +1,40 @@
-// src/components/ProductList.js
 import React from 'react';
 import '../assets/css/productlist.css';
+import cakeImage from '../assets/photos/cake.png';
+import cupcakesImage from '../assets/photos/cupcake.jpg';
+import cookiesImage from '../assets/photos/cookie.jpg';
 
 const products = [
   {
     id: 1,
     name: "Custom Cakes",
     description: "Your dream cake, crafted to perfection",
-    image: "custom-cake.jpg",
+    image: cakeImage,
     customizationOptions: ["Flavor", "Frosting", "Toppings", "Shape"]
   },
   {
     id: 2,
     name: "Cupcakes",
     description: "Delightful cupcakes for any occasion",
-    image: "cupcakes.jpg",
+    image: cupcakesImage,
     customizationOptions: ["Flavor", "Frosting", "Sprinkles", "Toppers"]
   },
   {
     id: 3,
     name: "Cookies",
     description: "Irresistible cookies, just the way you like",
-    image: "cookies.jpg",
+    image: cookiesImage,
     customizationOptions: ["Flavor", "Add-ins", "Icing", "Shape"]
   },
   {
     id: 4,
     name: "Brownies",
     description: "Rich, fudgy brownies tailored to your taste",
-    image: "brownies.jpg",
+    image: cakeImage,
     customizationOptions: ["Flavor", "Toppings", "Filling", "Cut"]
   }
 ];
+
 
 const ProductList = () => {
   const whatsappNumber = "6380255375"; // Replace with your actual WhatsApp number
@@ -44,7 +47,7 @@ const ProductList = () => {
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <img src={`/images/${product.image}`} alt={product.name} className="product-image" />
+            <img src={product.image} alt={product.name} className="product-image" />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <div className="customization-options">
