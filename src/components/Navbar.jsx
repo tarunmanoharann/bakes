@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
 import '../assets/css/navbar.css';
-import logo from '../assets/photos/port1.jpg';
+import logo from '../assets/photos/shebakes.jpg';
 import { FaBirthdayCake, FaCookie, FaMugHot } from 'react-icons/fa'; 
 
 const Navbar = () => {
